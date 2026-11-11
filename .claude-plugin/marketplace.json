@@ -1,0 +1,14 @@
+{
+  "name": "cfo-talks-plugin",
+  "owner": {
+    "name": "Peter Fedorocko"
+  },
+  "plugins": [
+    {
+      "name": "cfo-talks",
+      "source": "./cfo-talks",
+      "description": "The CFO Talks connector: your orgs, their charts of accounts and their financial plans in Claude.",
+      "version": "1.0.0"
+    }
+  ]
+}

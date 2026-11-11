@@ -1,0 +1,10 @@
+{
+  "name": "cfo-talks",
+  "version": "1.0.0",
+  "description": "MCP connector to CFO Talks: Claude gets the orgs that you are a member of, their charts of accounts (synthetic and analytic accounts) and their financial plans.",
+  "author": {
+    "name": "Peter Fedorocko"
+  },
+  "homepage": "https://cfotalks.eu",
+  "license": "Proprietary"
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "cfo-talks": {
+      "type": "http",
+      "url": "https://cfotalks.eu/api/mcp"
+    }
+  }
+}
