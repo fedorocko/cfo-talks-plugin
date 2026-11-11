@@ -4,7 +4,7 @@ This plugin connects Claude to [CFO Talks](https://cfotalks.eu). It contains one
 
 ## What the connector gives
 
-Claude gets the data of the CFO Talks orgs that you are a member of. Claude does not see other orgs.
+Claude gets the data of the CFO Talks orgs that you are a member of, and can create financial plans in them. Claude does not see other orgs.
 
 <!-- One row for each tool of the MCP server. When the server adds, renames or removes a tool, change this table. -->
 
@@ -14,6 +14,9 @@ Claude gets the data of the CFO Talks orgs that you are a member of. Claude does
 | `list_synthetic_accounts` | The synthetic accounts of the org's chart of accounts: code, name, category and type. |
 | `list_analytic_accounts` | The analytic accounts under one synthetic account: code, name, category and type. |
 | `list_plans` | The financial plans of the org, newest first: ID, name and creation time. |
+| `create_plan` | Creates a financial plan in the org for a period of years, quarters, months or ISO weeks. The plan gets 1 sheet with the period in its first rows. |
+| `list_plan_sheets` | The sheets of one plan, in tab order: ID and name. |
+| `get_plan_sheet` | The non-empty cells of one sheet, by A1 address: the value, or the formula and its last calculated value. |
 
 You do not call the tools yourself. Ask Claude a question, for example "Which financial plans does my org have?", and Claude calls the tools that it needs.
 

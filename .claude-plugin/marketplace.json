@@ -7,7 +7,7 @@
     {
       "name": "cfo-talks",
       "source": "./cfo-talks",
-      "description": "The CFO Talks connector: your orgs, their charts of accounts and their financial plans in Claude.",
+      "description": "The CFO Talks connector: your orgs, their charts of accounts and their financial plans in Claude: read the sheets and create new plans.",
       "version": "1.0.0"
     }
   ]
