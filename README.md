@@ -4,7 +4,7 @@ This plugin connects Claude to [CFO Talks](https://cfotalks.eu). It contains one
 
 ## What the connector gives
 
-Claude gets the data of the CFO Talks orgs that you are a member of, and can create financial plans in them. Claude does not see other orgs.
+Claude gets the data of the CFO Talks orgs that you are a member of, can create financial plans in them, and can open a plan in the plan view. Claude does not see other orgs.
 
 <!-- One row for each tool of the MCP server. When the server adds, renames or removes a tool, change this table. -->
 
@@ -17,8 +17,21 @@ Claude gets the data of the CFO Talks orgs that you are a member of, and can cre
 | `create_plan` | Creates a financial plan in the org for a period of years, quarters, months or ISO weeks. The plan gets 1 sheet with the period in its first rows. |
 | `list_plan_sheets` | The sheets of one plan, in tab order: ID and name. |
 | `get_plan_sheet` | The non-empty cells of one sheet, by A1 address: the value, or the formula and its last calculated value. |
+| `open_plan` | Opens one plan in the plan view: a spreadsheet in the conversation or in the side panel. |
 
 You do not call the tools yourself. Ask Claude a question, for example "Which financial plans does my org have?", and Claude calls the tools that it needs.
+
+## The plan view
+
+`open_plan` opens the plan view. The connector serves it as the MCP resource `ui://cfo-talks/plan-view`.
+
+| Where | The view |
+|---|---|
+| claude.ai web, desktop app | In the conversation. Claude can move it to the side panel. |
+| Mobile | In the conversation only. |
+| Claude Code | No view. Claude gets only the ID and the name of the plan. |
+
+In this version, the view shows an empty sheet, not the data of the plan, and does not save edits.
 
 ## Installation
 
