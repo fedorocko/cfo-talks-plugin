@@ -18,6 +18,7 @@ Claude gets the data of the CFO Talks orgs that you are a member of, can create 
 | `list_plan_sheets` | The sheets of one plan, in tab order: ID and name. |
 | `get_plan_sheet` | The non-empty cells of one sheet, by A1 address: the value, or the formula and its last calculated value. |
 | `open_plan` | Opens one plan in the plan view: a spreadsheet in the conversation or in the side panel. |
+| `query_journal` | The net turnover of accounts from the journal entries, for each year, quarter, month or ISO week of a period. A synthetic account includes the entries of all its analytic accounts. |
 
 You do not call the tools yourself. Ask Claude a question, for example "Which financial plans does my org have?", and Claude calls the tools that it needs.
 

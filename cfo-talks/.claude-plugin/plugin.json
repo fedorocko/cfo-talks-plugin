@@ -1,7 +1,7 @@
 {
   "name": "cfo-talks",
   "version": "1.0.0",
-  "description": "MCP connector to CFO Talks: Claude gets the orgs that you are a member of, their charts of accounts (synthetic and analytic accounts) and their financial plans with the cells of each sheet, creates new plans and opens a plan in a spreadsheet view.",
+  "description": "MCP connector to CFO Talks: Claude gets the orgs that you are a member of, their charts of accounts (synthetic and analytic accounts), the net turnover of their accounts from the journal and their financial plans with the cells of each sheet, creates new plans and opens a plan in a spreadsheet view.",
   "author": {
     "name": "Peter Fedorocko"
   },
