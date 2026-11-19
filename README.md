@@ -1,6 +1,6 @@
 # cfo-talks – Claude plugin
 
-This plugin connects Claude to [CFO Talks](https://cfotalks.eu). It contains one MCP connector and no skills.
+This plugin connects Claude to [CFO Talks](https://cfotalks.eu). It contains one MCP connector and one skill.
 
 ## What the connector gives
 
@@ -21,6 +21,15 @@ Claude gets the data of the CFO Talks orgs that you are a member of, can create 
 | `query_journal` | The net turnover of accounts from the journal entries, for each year, quarter, month or ISO week of a period. A synthetic account includes the entries of all its analytic accounts. |
 
 You do not call the tools yourself. Ask Claude a question, for example "Which financial plans does my org have?", and Claude calls the tools that it needs.
+
+## The skill
+
+The skill `cfo` tells Claude how to use the connector:
+
+- Claude answers only from the data of the tools. It does not search the internet and does not make up numbers.
+- If you do not name the org, Claude asks for it and offers your orgs.
+- Before Claude creates a plan, it asks for the granularity (yearly, quarterly, monthly or weekly) and then for the first and the last year, quarter, month or week.
+- Before Claude queries the journal, it asks for the granularity and then for the year, quarter, month or week.
 
 ## The plan view
 
