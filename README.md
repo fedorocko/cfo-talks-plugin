@@ -6,7 +6,7 @@ This plugin connects Claude to [CFO Talks](https://cfotalks.eu). It contains one
 
 Claude gets the data of the CFO Talks orgs that you are a member of, can create financial plans in them, and can open a plan in the plan view. Claude does not see other orgs.
 
-<!-- One row for each tool of the MCP server. When the server adds, renames or removes a tool, change this table. -->
+<!-- One row for each tool of the MCP server and of the plan view. When a tool is added, renamed or removed, change this table. -->
 
 | Tool | What it gives |
 |---|---|
@@ -19,6 +19,9 @@ Claude gets the data of the CFO Talks orgs that you are a member of, can create 
 | `get_plan_sheet` | The non-empty cells of one sheet, by A1 address: the value, or the formula and its last calculated value. |
 | `open_plan` | Opens one plan in the plan view: a spreadsheet in the conversation or in the side panel. |
 | `query_journal` | The net turnover of accounts from the journal entries, for each year, quarter, month or ISO week of a period. A synthetic account includes the entries of all its analytic accounts. |
+| `edit_plan_sheet` | A tool of the plan view. Writes values and formulas into the cells of the open plan. Claude gets it with your next message after `open_plan`, while the view is open. |
+| `get_plan_snapshot` | Only the plan view calls it. Loads the plan into the view. |
+| `save_plan_snapshot` | Only the plan view calls it. Saves the edits of the view. |
 
 You do not call the tools yourself. Ask Claude a question, for example "Which financial plans does my org have?", and Claude calls the tools that it needs.
 
@@ -30,6 +33,7 @@ The skill `cfo` tells Claude how to use the connector:
 - If you do not name the org, Claude asks for it and offers your orgs.
 - Before Claude creates a plan, it asks for the granularity (yearly, quarterly, monthly or weekly) and then for the first and the last year, quarter, month or week.
 - Before Claude queries the journal, it asks for the granularity and then for the year, quarter, month or week.
+- Before Claude edits a plan, it opens the plan in the plan view. It edits from your next message.
 
 ## The plan view
 
@@ -41,7 +45,9 @@ The skill `cfo` tells Claude how to use the connector:
 | Mobile | In the conversation only. |
 | Claude Code | No view. Claude gets only the ID and the name of the plan. |
 
-In this version, the view shows an empty sheet, not the data of the plan, and does not save edits.
+The view loads the plan and saves your edits. While the view is open, Claude can write values and formulas into the plan with the view's tool `edit_plan_sheet`. Claude asks you to approve each call, unless you select **Always allow**. Only claude.ai web and the desktop app have the tool, and only if your organization has App tools.
+
+If Claude opens the same plan more than once, an older card can show old numbers. Open the newest card, or reload the conversation.
 
 ## Installation
 
