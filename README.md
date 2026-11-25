@@ -16,10 +16,10 @@ Claude gets the data of the CFO Talks orgs that you are a member of, can create 
 | `list_plans` | The financial plans of the org, newest first: ID, name and creation time. |
 | `create_plan` | Creates a financial plan in the org for a period of years, quarters, months or ISO weeks. The plan gets 1 sheet with the period in its first rows. |
 | `list_plan_sheets` | The sheets of one plan, in tab order: ID and name. |
-| `get_plan_sheet` | The non-empty cells of one sheet, by A1 address: the value, or the formula and its last calculated value. |
+| `get_plan_sheet` | The non-empty cells of one sheet, by A1 address: the value, or the formula and its last calculated value. Also the formats of the cells, as ranges: number format, bold, alignment and background. |
 | `open_plan` | Opens one plan in the plan view: a spreadsheet in the conversation or in the side panel. |
 | `query_journal` | The net turnover of accounts from the journal entries, for each year, quarter, month or ISO week of a period. A synthetic account includes the entries of all its analytic accounts. |
-| `edit_plan_sheet` | A tool of the plan view. Writes values and formulas into the cells of the open plan. Claude gets it with your next message after `open_plan`, while the view is open. |
+| `edit_plan_sheet` | A tool of the plan view. Writes values, formulas and formats (number format, bold, alignment, background) into the cells of the open plan. Claude gets it with your next message after `open_plan`, while the view is open. |
 | `add_plan_sheet` | A tool of the plan view. Adds an empty sheet to the open plan, with a name and a place in the tab row. Claude gets it with your next message after `open_plan`, while the view is open. |
 | `get_plan_snapshot` | Only the plan view calls it. Loads the plan into the view. |
 | `save_plan_snapshot` | Only the plan view calls it. Saves the edits of the view. |
@@ -35,6 +35,8 @@ The skill `cfo` tells Claude how to use the connector:
 - Before Claude creates a plan, it asks for the granularity (yearly, quarterly, monthly or weekly) and then for the first and the last year, quarter, month or week.
 - Before Claude queries the journal, it asks for the granularity and then for the year, quarter, month or week.
 - Before Claude edits a plan, it opens the plan in the plan view. It edits from your next message.
+- When you ask Claude to plan, it writes the numbers into the plan, not only into the chat.
+- Claude formats the cells that it writes: each number gets a number format, and the formats are consistent across the plan.
 
 ## The plan view
 
@@ -46,7 +48,7 @@ The skill `cfo` tells Claude how to use the connector:
 | Mobile | In the conversation only. |
 | Claude Code | No view. Claude gets only the ID and the name of the plan. |
 
-The view loads the plan and saves your edits. While the view is open, Claude can change the plan with the tools of the view: `edit_plan_sheet` writes values and formulas into cells, and `add_plan_sheet` adds an empty sheet. Claude asks you to approve each call, unless you select **Always allow** for that tool. Only claude.ai web and the desktop app have the tools, and only if your organization has App tools.
+The view loads the plan and saves your edits. While the view is open, Claude can change the plan with the tools of the view: `edit_plan_sheet` writes values, formulas and formats into cells, and `add_plan_sheet` adds an empty sheet. Claude asks you to approve each call, unless you select **Always allow** for that tool. Only claude.ai web and the desktop app have the tools, and only if your organization has App tools.
 
 If Claude opens the same plan more than once, an older card can show old numbers. Open the newest card, or reload the conversation.
 
